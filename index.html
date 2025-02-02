@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winlator@Odyssey</title>
+    <style>
+        /* Fade-in effect */
+        body {
+            animation: fadeIn 2s ease-in-out;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.7em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #bb86fc, #6200ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-bottom: 0.1em; /* Added padding to ensure full text visibility */
+            line-height: 1.1; /* Adjust line height if needed */
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #ffffff;
+            margin-bottom: 40px;
+        }
+
+        .feature-box {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-box h2 {
+            color: #03dac6;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 1em;
+            color: #ffffff;
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: #121212;
+            padding: 10px 10px; /* Reduced padding */
+            display: flex;
+            justify-content: flex-start; /* Align items to the start */
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .header .brand {
+            font-size: 1.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #bb86fc, #6200ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header .menu {
+            position: relative;
+            margin-left: auto;
+        }
+
+        .header .menu button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #bb86fc;
+            margin-right: 10px;
+        }
+
+        .header .dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: #1e1e1e;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .dropdown a {
+            text-decoration: none;
+            color: #bb86fc;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .header .dropdown a:hover {
+            background: #6200ea;
+        }
+
+        .header .menu button:focus + .dropdown,
+        .header .dropdown:hover {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #bb86fc, #6200ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border: 1px solid #6200ea;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="brand">ODYSSEY</div>
+        <div class="menu">
+            <button>&#9776;</button>
+            <div class="dropdown">
+                <a href="#" id="home-link">Home</a>
+                <a href="#" id="releases-link">Releases</a>
+                <a href="#" id="credits-link">Credits</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="home-content">
+        <h1>Winlator@Odyssey</h1>
+        <p>Winlator@Odyssey is an Android application for running Windows applications with Wine and Box86/Box64 forked off Winlator</p>
+        <div class="feature-box">
+            <div class="emoji">💿</div>
+            <h2>High Compatibility</h2>
+            <p>Winlator@Odyssey has high compatibility with every title, old or new.</p>
+        </div>
+        <div class="feature-box">
+            <div class="emoji">🚀</div>
+            <h2>High Performance</h2>
+            <p>Winlator@Odyssey has high performance, letting you have one of the most amazing experiences.</p>
+        </div>
+        <div class="feature-box">
+            <div class="emoji">🎮</div>
+            <h2>Input Controls</h2>
+            <p>Winlator@Odyssey has in-built input controls, letting you setup your controllers easily with tons of presets too.</p>
+        </div>
+    </div>
+    <div class="container hidden" id="releases-content">
+        <h1>Odyssey Releases</h1>
+        <p>All the Odyssey releases</p>
+        <div class="feature-box">
+            <div class="tag">Latest</div>
+            <h2>Latest Release</h2>
+            <a href="https://github.com/atodyssey/odyssey.github.io/releases/latest" target="_blank">Download</a>
+        </div>
+    </div>
+    <div class="container hidden" id="credits-content">
+        <h1>Credits</h1>
+        <h2>Odyssey & Third Party Apps</h2>
+        <p>Winlator@Odyssey is a fork of the emulator Winlator by brunodev85 on GitHub. This fork is intended mainly for personal use.</p>
+    </div>
+    <script>
+        document.getElementById('releases-link').addEventListener('click', function() {
+            document.getElementById('home-content').classList.add('hidden');
+            document.getElementById('credits-content').classList.add('hidden');
+            document.getElementById('releases-content').classList.remove('hidden');
+        });
+
+        document.getElementById('home-link').addEventListener('click', function() {
+            document.getElementById('releases-content').classList.add('hidden');
+            document.getElementById('credits-content').classList.add('hidden');
+            document.getElementById('home-content').classList.remove('hidden');
+        });
+
+        document.getElementById('credits-link').addEventListener('click', function() {
+            document.getElementById('home-content').classList.add('hidden');
+            document.getElementById('releases-content').classList.add('hidden');
+            document.getElementById('credits-content').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
